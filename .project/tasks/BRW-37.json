@@ -1,0 +1,30 @@
+{
+  "id": "BRW-37",
+  "title": "Send pickup reminders",
+  "description": "Remind the owner and borrower before their agreed pickup time.",
+  "status": "done",
+  "assigneeId": "eli",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "notification-service",
+    "message-queue",
+    "email"
+  ],
+  "relatedChangeIds": [
+    "pickup-reminders",
+    "reminder-dedup"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Send one reminder per pickup",
+    "Cancel reminders after cancellation"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/messages/notification.service.ts"
+  ],
+  "agentCreated": true
+}

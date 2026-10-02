@@ -1,0 +1,11 @@
+{
+  "id": "email",
+  "name": "Email delivery",
+  "type": "external-service",
+  "description": "Delivers pickup reminders and waitlist offers to members.",
+  "responsibilities": [
+    "Send transactional email"
+  ],
+  "parentId": "message-delivery",
+  "systemId": "messages"
+}

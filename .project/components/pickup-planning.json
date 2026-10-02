@@ -1,0 +1,11 @@
+{
+  "id": "pickup-planning",
+  "name": "Pickup planning",
+  "type": "module",
+  "description": "Agree on when and where an item changes hands.",
+  "responsibilities": [
+    "Agree on when and where an item changes hands."
+  ],
+  "parentId": "borrowing",
+  "systemId": "borrowing"
+}

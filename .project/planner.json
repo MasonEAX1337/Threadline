@@ -1,0 +1,201 @@
+{
+  "rules": [
+    {
+      "match": "waitlist|waiting|in line|queue|first choice",
+      "components": [
+        "loan-service",
+        "waitlist-service",
+        "return-service",
+        "notification-service"
+      ],
+      "title": "Offer returned items to the next person waiting",
+      "labels": [
+        "Feature",
+        "Waitlists"
+      ],
+      "criteria": [
+        "Choose the first eligible person on the waitlist",
+        "Hold the returned item for 24 hours while they decide",
+        "Offer it to the next person if they decline or the offer expires"
+      ],
+      "assumptions": [
+        "Returned items are held for the next person waiting for 24 hours"
+      ]
+    },
+    {
+      "match": "reminder|notification|email|message",
+      "components": [
+        "notification-service",
+        "pickup-service",
+        "member-service"
+      ],
+      "title": "Let members choose pickup reminders",
+      "labels": [
+        "Feature",
+        "Messages"
+      ],
+      "criteria": [
+        "Save each member\u2019s reminder preference",
+        "Send the reminder before the agreed pickup time",
+        "Cancel reminders when the pickup is cancelled"
+      ],
+      "assumptions": [
+        "Essential pickup updates remain enabled"
+      ]
+    },
+    {
+      "match": "history|export|download|csv",
+      "components": [
+        "history-service",
+        "postgres",
+        "member-service"
+      ],
+      "title": "Download my lending history",
+      "labels": [
+        "Feature",
+        "History"
+      ],
+      "criteria": [
+        "Export only the signed-in member\u2019s own loans",
+        "Include item names, dates, and loan outcomes",
+        "Exclude private pickup addresses and contact details"
+      ],
+      "assumptions": [
+        "Members can export only their own loan records"
+      ]
+    },
+    {
+      "match": "return|bring back|available immediately|available to everyone",
+      "components": [
+        "loan-service",
+        "return-service",
+        "availability-policy"
+      ],
+      "title": "Make returned items available immediately",
+      "labels": [
+        "Feature",
+        "Returns"
+      ],
+      "criteria": [
+        "Require the owner to confirm the return",
+        "Show the returned item as available to everyone",
+        "Allow a new borrowing request immediately"
+      ],
+      "assumptions": [
+        "Returned items become available to everyone immediately"
+      ]
+    },
+    {
+      "match": "photo|image|upload",
+      "components": [
+        "photo-service",
+        "object-storage",
+        "item-service"
+      ],
+      "title": "Make listing photos faster to browse",
+      "labels": [
+        "Feature",
+        "Photos"
+      ],
+      "criteria": [
+        "Validate the photo format and size",
+        "Create a small preview for listing cards",
+        "Keep the original photo and its orientation"
+      ],
+      "assumptions": [
+        "Only the listing owner can change its photos"
+      ]
+    },
+    {
+      "match": "search|category|find|filter|browse",
+      "components": [
+        "search-service",
+        "item-service"
+      ],
+      "title": "Find nearby items by category",
+      "labels": [
+        "Feature",
+        "Items"
+      ],
+      "criteria": [
+        "Filter items by category and neighborhood",
+        "Keep keyword search available",
+        "Show a helpful empty state when no items match"
+      ],
+      "assumptions": [
+        "Public listings show the neighborhood, not an exact address"
+      ]
+    },
+    {
+      "match": "sign.?in|login|privacy|profile|member",
+      "components": [
+        "member-service",
+        "api",
+        "pickup-service"
+      ],
+      "title": "Protect member pickup details",
+      "labels": [
+        "Privacy",
+        "Members"
+      ],
+      "criteria": [
+        "Show exact pickup details only after confirmation",
+        "Allow only the owner and confirmed borrower to view them",
+        "Keep public listings limited to the neighborhood"
+      ],
+      "assumptions": [
+        "Private contact details are never part of a public listing"
+      ]
+    },
+    {
+      "match": "pickup|collect|handoff",
+      "components": [
+        "pickup-service",
+        "loan-service",
+        "notification-service"
+      ],
+      "title": "Help neighbors agree on a pickup time",
+      "labels": [
+        "Feature",
+        "Borrowing"
+      ],
+      "criteria": [
+        "Let the owner propose pickup times",
+        "Let the borrower confirm a time",
+        "Notify both people when the time changes"
+      ],
+      "assumptions": [
+        "A pickup can be arranged only for a reserved item"
+      ]
+    },
+    {
+      "match": "borrow|loan|reserv",
+      "components": [
+        "loan-service",
+        "availability-policy",
+        "item-service"
+      ],
+      "title": "Reserve an item for one borrower",
+      "labels": [
+        "Feature",
+        "Borrowing"
+      ],
+      "criteria": [
+        "Check that the item is available",
+        "Reserve it for only one neighbor at a time",
+        "Explain when an item is on loan or held for someone waiting"
+      ],
+      "assumptions": [
+        "An item has at most one active reservation or loan"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "componentId": "loan-service",
+      "firstPattern": "held for the next person waiting",
+      "secondPattern": "available to everyone immediately",
+      "explanation": "One task holds a returned item for the next person waiting. The other makes it available to everyone immediately. Agree on who gets first choice before changing the return rules."
+    }
+  ]
+}

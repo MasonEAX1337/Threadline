@@ -1,0 +1,12 @@
+{
+  "id": "request-loan",
+  "name": "requestLoan()",
+  "type": "function",
+  "description": "Reserve an available item for one neighbor.",
+  "responsibilities": [
+    "Reserve an available item for one neighbor."
+  ],
+  "parentId": "loan-service",
+  "systemId": "borrowing",
+  "path": "src/loans/loan.service.ts"
+}

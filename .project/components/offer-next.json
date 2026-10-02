@@ -1,0 +1,12 @@
+{
+  "id": "offer-next",
+  "name": "offerNext()",
+  "type": "function",
+  "description": "Offer a returned item to the next person waiting.",
+  "responsibilities": [
+    "Offer a returned item to the next person waiting."
+  ],
+  "parentId": "waitlist-service",
+  "systemId": "waitlists",
+  "path": "src/waitlists/waitlist.service.ts"
+}

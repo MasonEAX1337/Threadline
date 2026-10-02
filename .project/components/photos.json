@@ -1,0 +1,9 @@
+{
+  "id": "photos",
+  "name": "Photos",
+  "type": "system",
+  "description": "Pictures that help neighbors recognize an item.",
+  "responsibilities": [
+    "Pictures that help neighbors recognize an item."
+  ]
+}

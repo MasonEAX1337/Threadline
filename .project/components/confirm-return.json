@@ -1,0 +1,12 @@
+{
+  "id": "confirm-return",
+  "name": "confirmReturn()",
+  "type": "function",
+  "description": "Record that the owner has received the item back.",
+  "responsibilities": [
+    "Record that the owner has received the item back."
+  ],
+  "parentId": "return-service",
+  "systemId": "returns",
+  "path": "src/returns/return.service.ts"
+}

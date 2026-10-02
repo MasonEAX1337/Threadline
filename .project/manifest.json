@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "knowledgeRevision": "a83dcf2",
+  "recordedAt": "2026-10-01T18:22:00Z",
+  "order": {
+    "components": [
+      "items",
+      "borrowing",
+      "returns",
+      "waitlists",
+      "messages",
+      "members",
+      "photos",
+      "history",
+      "item-listings",
+      "item-discovery",
+      "loan-lifecycle",
+      "pickup-planning",
+      "return-checks",
+      "waitlist-order",
+      "message-delivery",
+      "member-profiles",
+      "photo-processing",
+      "loan-history",
+      "item-service",
+      "search-service",
+      "loan-service",
+      "availability-policy",
+      "pickup-service",
+      "return-service",
+      "waitlist-service",
+      "notification-service",
+      "member-service",
+      "photo-service",
+      "history-service",
+      "postgres",
+      "object-storage",
+      "message-queue",
+      "email",
+      "api",
+      "request-loan",
+      "confirm-return",
+      "offer-next",
+      "send-reminder"
+    ],
+    "tasks": [
+      "BRW-43",
+      "BRW-42",
+      "BRW-44",
+      "BRW-45",
+      "BRW-46",
+      "BRW-47",
+      "BRW-48",
+      "BRW-49",
+      "BRW-38",
+      "BRW-35",
+      "BRW-36",
+      "BRW-37"
+    ],
+    "changes": [
+      "availability-check",
+      "waitlists-added",
+      "pickup-reminders",
+      "member-privacy",
+      "reminder-dedup",
+      "photo-previews"
+    ],
+    "decisions": [
+      "adr-017",
+      "adr-018"
+    ]
+  }
+}

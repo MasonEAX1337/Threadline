@@ -1,0 +1,12 @@
+{
+  "id": "postgres",
+  "name": "PostgreSQL",
+  "type": "database",
+  "description": "Stores items, loans, waitlist positions, and member records.",
+  "responsibilities": [
+    "Persist lending records",
+    "Keep reservations consistent"
+  ],
+  "parentId": "loan-history",
+  "systemId": "history"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "photo-previews",
+  "title": "Faster item photo previews",
+  "summary": "Listing cards now use smaller photo previews so browsing feels faster.",
+  "reason": "Large phone photos slowed down the item list, especially on mobile connections.",
+  "implementation": "PhotoService creates a thumbnail during upload and preserves the original for the item detail page.",
+  "type": "feature",
+  "significance": "normal",
+  "authorId": "noah",
+  "timestamp": "2026-10-01T13:22:00Z",
+  "relativeTime": "3 days ago",
+  "commitSha": "f5d83c2",
+  "pullRequestNumber": 137,
+  "branch": "main",
+  "componentIds": [
+    "photos",
+    "photo-service",
+    "object-storage"
+  ],
+  "files": [
+    "src/photos/photo.service.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-48"
+  ],
+  "evidence": {
+    "source": "PR #137",
+    "revision": "f5d83c2",
+    "status": "recorded"
+  }
+}

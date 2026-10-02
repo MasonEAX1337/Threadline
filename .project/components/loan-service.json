@@ -1,0 +1,18 @@
+{
+  "id": "loan-service",
+  "name": "LoanService",
+  "type": "service",
+  "description": "Reserves an item so two neighbors cannot borrow it at once.",
+  "responsibilities": [
+    "Check item availability",
+    "Reserve an item for one borrower",
+    "Record pickup and return dates"
+  ],
+  "parentId": "loan-lifecycle",
+  "systemId": "borrowing",
+  "path": "src/loans/loan.service.ts",
+  "guarantees": [
+    "An item has at most one active reservation or loan"
+  ],
+  "decisionId": "adr-017"
+}

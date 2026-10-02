@@ -1,0 +1,9 @@
+{
+  "id": "waitlists",
+  "name": "Waitlists",
+  "type": "system",
+  "description": "A fair queue for items that are already borrowed.",
+  "responsibilities": [
+    "A fair queue for items that are already borrowed."
+  ]
+}

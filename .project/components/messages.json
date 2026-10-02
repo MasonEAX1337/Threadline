@@ -1,0 +1,9 @@
+{
+  "id": "messages",
+  "name": "Messages",
+  "type": "system",
+  "description": "Pickup reminders and updates for borrowers and owners.",
+  "responsibilities": [
+    "Pickup reminders and updates for borrowers and owners."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "borrowing",
+  "name": "Borrowing",
+  "type": "system",
+  "description": "Requests, reservations, and pickup arrangements.",
+  "responsibilities": [
+    "Requests, reservations, and pickup arrangements."
+  ]
+}

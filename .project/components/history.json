@@ -1,0 +1,9 @@
+{
+  "id": "history",
+  "name": "History",
+  "type": "system",
+  "description": "A record of who borrowed what and when.",
+  "responsibilities": [
+    "A record of who borrowed what and when."
+  ]
+}

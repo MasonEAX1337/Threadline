@@ -1,0 +1,29 @@
+{
+  "id": "BRW-47",
+  "title": "Report a damaged item",
+  "description": "Let owners describe damage noticed when an item is returned.",
+  "status": "backlog",
+  "assigneeId": "alex",
+  "labels": [
+    "Feature",
+    "Returns"
+  ],
+  "componentIds": [
+    "return-service",
+    "history-service"
+  ],
+  "relatedChangeIds": [],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Attach the report to a loan",
+    "Let both people see the report",
+    "Keep the item unavailable while the owner reviews it"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/returns/return.service.ts",
+    "src/history/loan-history.service.ts"
+  ],
+  "agentCreated": true
+}

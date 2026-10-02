@@ -1,0 +1,14 @@
+{
+  "id": "notification-service",
+  "name": "NotificationService",
+  "type": "service",
+  "description": "Sends pickup reminders and tells neighbors when an item is ready.",
+  "responsibilities": [
+    "Schedule pickup reminders",
+    "Deliver waitlist offers",
+    "Avoid duplicate messages"
+  ],
+  "parentId": "message-delivery",
+  "systemId": "messages",
+  "path": "src/messages/notification.service.ts"
+}

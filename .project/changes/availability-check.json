@@ -1,0 +1,37 @@
+{
+  "id": "availability-check",
+  "title": "Double bookings prevented",
+  "summary": "Every borrowing request now checks the same availability rules before reserving an item.",
+  "reason": "Two neighbors could request the same drill at the same time. Availability checks in separate screens could disagree.",
+  "implementation": "LoanService now owns reservation state. AvailabilityPolicy checks whether an item is available, already borrowed, or held. The database commits the reservation as one operation.",
+  "type": "architecture",
+  "significance": "architectural",
+  "authorId": "mason",
+  "timestamp": "2026-10-01T18:22:00Z",
+  "relativeTime": "18 minutes ago",
+  "commitSha": "a83dcf2",
+  "pullRequestNumber": 142,
+  "branch": "main",
+  "componentIds": [
+    "borrowing",
+    "loan-service",
+    "availability-policy",
+    "postgres"
+  ],
+  "files": [
+    "src/loans/loan.service.ts",
+    "src/loans/availability-policy.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-36",
+    "BRW-42"
+  ],
+  "evidence": {
+    "source": "PR #142 \u00b7 ADR-017",
+    "revision": "a83dcf2",
+    "status": "recorded"
+  },
+  "architectureBefore": "Browse screen \u2192 availability check\nRequest screen \u2192 separate availability check",
+  "architectureAfter": "All borrowing requests \u2192 LoanService \u2192 one reservation check",
+  "decisionId": "adr-017"
+}

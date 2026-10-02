@@ -1,0 +1,22 @@
+{
+  "id": "adr-018",
+  "title": "Share pickup details only after confirmation",
+  "date": "Sep 28, 2026",
+  "context": "Neighbors need to find nearby items without making their address public.",
+  "decision": "Public listings show a neighborhood. Only the owner and confirmed borrower can see the exact pickup location and contact details.",
+  "alternatives": [
+    {
+      "name": "Show the address on every listing",
+      "reason": "Rejected: exposes private location details to anyone browsing."
+    },
+    {
+      "name": "Require a separate chat for every pickup",
+      "reason": "Rejected: adds unnecessary work when both members have already agreed."
+    }
+  ],
+  "componentIds": [
+    "member-service",
+    "pickup-service"
+  ],
+  "status": "Accepted"
+}

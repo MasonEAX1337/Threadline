@@ -1,0 +1,11 @@
+{
+  "id": "item-discovery",
+  "name": "Finding items",
+  "type": "module",
+  "description": "Browse nearby items by category and keyword.",
+  "responsibilities": [
+    "Browse nearby items by category and keyword."
+  ],
+  "parentId": "items",
+  "systemId": "items"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "adr-017",
+  "title": "Keep availability checks in one place",
+  "date": "Sep 29, 2026",
+  "context": "Separate availability checks let two neighbors reserve the same item at once.",
+  "decision": "LoanService owns item reservations. Every borrowing request and return uses the same availability rules before changing item state.",
+  "alternatives": [
+    {
+      "name": "Check availability in each screen",
+      "reason": "Rejected: separate screens could disagree or change at the same time."
+    },
+    {
+      "name": "Let owners resolve double bookings manually",
+      "reason": "Rejected: creates avoidable frustration for owners and borrowers."
+    }
+  ],
+  "componentIds": [
+    "loan-service",
+    "availability-policy"
+  ],
+  "status": "Accepted"
+}

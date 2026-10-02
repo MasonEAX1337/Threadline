@@ -1,0 +1,11 @@
+{
+  "id": "object-storage",
+  "name": "Photo storage",
+  "type": "database",
+  "description": "Stores the original listing photos and their previews.",
+  "responsibilities": [
+    "Keep photos outside the application database"
+  ],
+  "parentId": "photo-processing",
+  "systemId": "photos"
+}

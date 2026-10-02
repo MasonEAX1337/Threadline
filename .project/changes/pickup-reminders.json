@@ -1,0 +1,33 @@
+{
+  "id": "pickup-reminders",
+  "title": "Pickup reminders added",
+  "summary": "Owners and borrowers receive a reminder before their agreed pickup time.",
+  "reason": "Missed pickups left owners waiting and kept items reserved longer than necessary.",
+  "implementation": "PickupService schedules a reminder through NotificationService. Cancelled loans cancel their pending reminders.",
+  "type": "feature",
+  "significance": "normal",
+  "authorId": "sarah",
+  "timestamp": "2026-10-01T16:22:00Z",
+  "relativeTime": "3 hours ago",
+  "commitSha": "e124a9d",
+  "pullRequestNumber": 140,
+  "branch": "main",
+  "componentIds": [
+    "messages",
+    "notification-service",
+    "pickup-service"
+  ],
+  "files": [
+    "src/messages/notification.service.ts",
+    "src/loans/pickup.service.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-37",
+    "BRW-45"
+  ],
+  "evidence": {
+    "source": "PR #140",
+    "revision": "e124a9d",
+    "status": "recorded"
+  }
+}

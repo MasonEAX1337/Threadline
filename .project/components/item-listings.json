@@ -1,0 +1,11 @@
+{
+  "id": "item-listings",
+  "name": "Item listings",
+  "type": "module",
+  "description": "Create and update shareable item listings.",
+  "responsibilities": [
+    "Create and update shareable item listings."
+  ],
+  "parentId": "items",
+  "systemId": "items"
+}

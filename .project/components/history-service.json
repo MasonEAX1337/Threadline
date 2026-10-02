@@ -1,0 +1,14 @@
+{
+  "id": "history-service",
+  "name": "LoanHistoryService",
+  "type": "service",
+  "description": "Records requests, handoffs, and returns in an item timeline.",
+  "responsibilities": [
+    "Record who changed a loan",
+    "Show the owner and borrower their loan history",
+    "Export a member\u2019s own lending history"
+  ],
+  "parentId": "loan-history",
+  "systemId": "history",
+  "path": "src/history/loan-history.service.ts"
+}

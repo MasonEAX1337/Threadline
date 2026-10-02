@@ -1,0 +1,58 @@
+[
+  {
+    "id": "beta",
+    "title": "Neighborhood pilot",
+    "description": "Help the first neighborhood share everyday items with confidence.",
+    "dueDate": "2026-10-31",
+    "deliverables": [
+      {
+        "title": "Item listings",
+        "complete": true
+      },
+      {
+        "title": "Member sign-in",
+        "complete": true
+      },
+      {
+        "title": "Safe reservations",
+        "complete": true
+      },
+      {
+        "title": "Waitlist offers",
+        "complete": false
+      },
+      {
+        "title": "Lending history download",
+        "complete": false
+      },
+      {
+        "title": "Return improvements",
+        "complete": false
+      }
+    ]
+  },
+  {
+    "id": "v1",
+    "title": "Borrow 1.0",
+    "description": "Make sharing useful for more neighborhoods.",
+    "dueDate": "2026-11-30",
+    "deliverables": [
+      {
+        "title": "Listing photos",
+        "complete": true
+      },
+      {
+        "title": "Pickup reminders",
+        "complete": true
+      },
+      {
+        "title": "Neighborhood onboarding",
+        "complete": false
+      },
+      {
+        "title": "Item condition reports",
+        "complete": false
+      }
+    ]
+  }
+]

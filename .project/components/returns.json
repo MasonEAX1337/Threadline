@@ -1,0 +1,9 @@
+{
+  "id": "returns",
+  "name": "Returns",
+  "type": "system",
+  "description": "Confirm that an item is back with its owner.",
+  "responsibilities": [
+    "Confirm that an item is back with its owner."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "BRW-44",
+  "title": "Download my lending history",
+  "description": "Let members download their own borrowing and lending history as a CSV file.",
+  "status": "ready",
+  "assigneeId": "jamie",
+  "labels": [
+    "Feature",
+    "History"
+  ],
+  "componentIds": [
+    "history-service",
+    "postgres",
+    "member-service"
+  ],
+  "relatedChangeIds": [],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Export only the signed-in member\u2019s records",
+    "Include item, dates, and outcome",
+    "Keep private contact details out of the export"
+  ],
+  "assumptions": [
+    "Members can export only their own loan records"
+  ],
+  "resources": [
+    "src/history/loan-history.service.ts",
+    "src/members/member.service.ts"
+  ],
+  "agentCreated": true
+}

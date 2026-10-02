@@ -1,0 +1,14 @@
+{
+  "id": "return-service",
+  "name": "ReturnService",
+  "type": "service",
+  "description": "Records an owner-confirmed return before the item can be borrowed again.",
+  "responsibilities": [
+    "Require the owner to confirm a return",
+    "Update the item state",
+    "Tell the waitlist that the item is back"
+  ],
+  "parentId": "return-checks",
+  "systemId": "returns",
+  "path": "src/returns/return.service.ts"
+}

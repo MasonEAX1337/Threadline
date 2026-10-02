@@ -1,0 +1,11 @@
+{
+  "id": "waitlist-order",
+  "name": "Queue and offers",
+  "type": "module",
+  "description": "Order requests and offer returned items to waiting neighbors.",
+  "responsibilities": [
+    "Order requests and offer returned items to waiting neighbors."
+  ],
+  "parentId": "waitlists",
+  "systemId": "waitlists"
+}

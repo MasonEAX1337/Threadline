@@ -1,0 +1,28 @@
+{
+  "id": "BRW-49",
+  "title": "Welcome new neighbors",
+  "description": "Explain how borrowing, pickup, and returns work when someone joins.",
+  "status": "ready",
+  "assigneeId": "riley",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "member-service",
+    "item-service"
+  ],
+  "relatedChangeIds": [],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Show three simple onboarding steps",
+    "Let returning members skip the tour",
+    "Include neighborhood lending guidelines"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/members/member.service.ts",
+    "src/items/item.service.ts"
+  ],
+  "agentCreated": true
+}

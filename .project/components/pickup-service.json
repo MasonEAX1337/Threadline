@@ -1,0 +1,13 @@
+{
+  "id": "pickup-service",
+  "name": "PickupService",
+  "type": "service",
+  "description": "Helps the owner and borrower agree on a pickup.",
+  "responsibilities": [
+    "Suggest pickup times",
+    "Confirm the agreed handoff"
+  ],
+  "parentId": "pickup-planning",
+  "systemId": "borrowing",
+  "path": "src/loans/pickup.service.ts"
+}

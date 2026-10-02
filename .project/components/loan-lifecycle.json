@@ -1,0 +1,11 @@
+{
+  "id": "loan-lifecycle",
+  "name": "Loan lifecycle",
+  "type": "module",
+  "description": "Manage a request from reservation to completed loan.",
+  "responsibilities": [
+    "Manage a request from reservation to completed loan."
+  ],
+  "parentId": "borrowing",
+  "systemId": "borrowing"
+}

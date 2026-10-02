@@ -1,0 +1,32 @@
+{
+  "id": "waitlists-added",
+  "title": "Waitlists added for popular items",
+  "summary": "Neighbors can join a queue when the drill, tent, or ladder they need is already borrowed.",
+  "reason": "Repeatedly checking a listing was frustrating. People wanted a fair way to hear when an item was back.",
+  "implementation": "WaitlistService records a member\u2019s position and prevents duplicate joins. Automatic offers after return are the next task; the current queue is visible to the owner.",
+  "type": "feature",
+  "significance": "important",
+  "authorId": "alex",
+  "timestamp": "2026-10-01T17:22:00Z",
+  "relativeTime": "1 hour ago",
+  "commitSha": "c90bf71",
+  "pullRequestNumber": 141,
+  "branch": "main",
+  "componentIds": [
+    "waitlists",
+    "waitlist-service",
+    "loan-service"
+  ],
+  "files": [
+    "src/waitlists/waitlist.service.ts",
+    "src/loans/loan.service.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-43"
+  ],
+  "evidence": {
+    "source": "PR #141",
+    "revision": "c90bf71",
+    "status": "recorded"
+  }
+}

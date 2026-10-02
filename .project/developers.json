@@ -1,0 +1,122 @@
+[
+  {
+    "id": "mason",
+    "name": "Mason Brooks",
+    "username": "mason",
+    "role": "Technical Lead",
+    "primaryAreas": [
+      "Borrowing",
+      "Returns",
+      "Availability"
+    ],
+    "initials": "MB",
+    "color": "peach",
+    "changes": 24,
+    "bio": "Keeps borrowing rules consistent. Ask Mason how an item moves from available to borrowed and back."
+  },
+  {
+    "id": "alex",
+    "name": "Alex Rivera",
+    "username": "alex",
+    "role": "Backend Engineer",
+    "primaryAreas": [
+      "Waitlists",
+      "Returns",
+      "Messages"
+    ],
+    "initials": "AR",
+    "color": "blue",
+    "changes": 19,
+    "bio": "Builds fair waitlists and reliable return handoffs. Ask Alex what happens when a popular item comes back."
+  },
+  {
+    "id": "sarah",
+    "name": "Sarah Chen",
+    "username": "sarah",
+    "role": "Frontend Engineer",
+    "primaryAreas": [
+      "Item browsing",
+      "Photos",
+      "Design system"
+    ],
+    "initials": "SC",
+    "color": "green",
+    "changes": 18,
+    "bio": "Makes it easy to discover a drill, a tent, or a book nearby. Owns item browsing and listing photos."
+  },
+  {
+    "id": "jamie",
+    "name": "Jamie Park",
+    "username": "jamie",
+    "role": "Backend Engineer",
+    "primaryAreas": [
+      "Loan history",
+      "API",
+      "Storage"
+    ],
+    "initials": "JP",
+    "color": "violet",
+    "changes": 15,
+    "bio": "Keeps lending history understandable and private. Owns loan records and the history export."
+  },
+  {
+    "id": "noah",
+    "name": "Noah Williams",
+    "username": "noah",
+    "role": "Full Stack Engineer",
+    "primaryAreas": [
+      "Photo uploads",
+      "Reminder delivery",
+      "Storage"
+    ],
+    "initials": "NW",
+    "color": "gold",
+    "changes": 12,
+    "bio": "Makes photo uploads quick and reminder delivery reliable."
+  },
+  {
+    "id": "priya",
+    "name": "Priya Shah",
+    "username": "priya",
+    "role": "Security Engineer",
+    "primaryAreas": [
+      "Member privacy",
+      "Sign-in",
+      "Ownership"
+    ],
+    "initials": "PS",
+    "color": "pink",
+    "changes": 11,
+    "bio": "Protects member privacy and checks who can see pickup details."
+  },
+  {
+    "id": "eli",
+    "name": "Eli Turner",
+    "username": "eli",
+    "role": "Full Stack Engineer",
+    "primaryAreas": [
+      "Pickup planning",
+      "Messages",
+      "Item listings"
+    ],
+    "initials": "ET",
+    "color": "blue",
+    "changes": 9,
+    "bio": "Builds the pickup experience and notifications for owners and borrowers."
+  },
+  {
+    "id": "riley",
+    "name": "Riley Morgan",
+    "username": "riley",
+    "role": "Developer Experience",
+    "primaryAreas": [
+      "Onboarding",
+      "Documentation",
+      "Accessibility"
+    ],
+    "initials": "RM",
+    "color": "green",
+    "changes": 8,
+    "bio": "Makes Borrow easy to join. Works on neighborhood onboarding and helpful documentation."
+  }
+]

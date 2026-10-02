@@ -1,0 +1,26 @@
+[
+  {
+    "id": "notice-1",
+    "title": "Double bookings prevented",
+    "description": "Borrowing requests now share one availability check.",
+    "time": "18m",
+    "href": "/activity/availability-check",
+    "type": "architecture"
+  },
+  {
+    "id": "notice-2",
+    "title": "Waitlists are here",
+    "description": "Alex added a queue for items that are already borrowed.",
+    "time": "1h",
+    "href": "/activity/waitlists-added",
+    "type": "change"
+  },
+  {
+    "id": "notice-3",
+    "title": "Neighborhood pilot approaching",
+    "description": "The first neighborhood launches October 31. Three deliverables remain.",
+    "time": "Yesterday",
+    "href": "/board?tab=milestones",
+    "type": "milestone"
+  }
+]

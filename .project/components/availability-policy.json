@@ -1,0 +1,16 @@
+{
+  "id": "availability-policy",
+  "name": "AvailabilityPolicy",
+  "type": "class",
+  "description": "Decides whether an item is available, on loan, or held for someone waiting.",
+  "responsibilities": [
+    "Keep one availability rule across requests and returns",
+    "Reject competing reservations"
+  ],
+  "parentId": "loan-lifecycle",
+  "systemId": "borrowing",
+  "path": "src/loans/availability-policy.ts",
+  "guarantees": [
+    "An item has at most one active reservation or loan"
+  ]
+}

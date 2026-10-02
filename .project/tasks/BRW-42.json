@@ -1,0 +1,35 @@
+{
+  "id": "BRW-42",
+  "title": "Make returned items available immediately",
+  "description": "Update the return screen so an owner-confirmed return makes the item available to everyone right away.",
+  "status": "review",
+  "assigneeId": "mason",
+  "labels": [
+    "Feature",
+    "Returns"
+  ],
+  "componentIds": [
+    "loan-service",
+    "return-service",
+    "availability-policy"
+  ],
+  "relatedChangeIds": [
+    "availability-check"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Require the owner to confirm the return",
+    "Show the item as available on the browse screen",
+    "Allow a new request immediately"
+  ],
+  "assumptions": [
+    "Returned items become available to everyone immediately"
+  ],
+  "resources": [
+    "src/loans/loan.service.ts",
+    "src/returns/return.service.ts",
+    "src/loans/availability-policy.ts"
+  ],
+  "agentCreated": true
+}

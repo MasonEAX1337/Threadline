@@ -1,0 +1,29 @@
+{
+  "id": "BRW-48",
+  "title": "Compress listing photos",
+  "description": "Resize large phone photos so item listings load quickly.",
+  "status": "review",
+  "assigneeId": "noah",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "photo-service",
+    "object-storage"
+  ],
+  "relatedChangeIds": [
+    "photo-previews"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Create a small preview",
+    "Keep the original photo",
+    "Preserve orientation"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/photos/photo.service.ts"
+  ],
+  "agentCreated": true
+}

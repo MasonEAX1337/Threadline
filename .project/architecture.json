@@ -1,0 +1,318 @@
+{
+  "flows": [
+    {
+      "id": "borrow",
+      "name": "Borrow an item",
+      "description": "From finding a drill to reserving it for pickup.",
+      "purpose": "Lets a neighbor request an item while making sure it is reserved for only one person.",
+      "entryPoint": "A neighbor selects \u201cRequest to borrow\u201d \u00b7 POST /loans",
+      "output": "A reserved item and an agreed pickup",
+      "guarantees": [
+        "An item can have only one active borrower",
+        "Only signed-in members can request items",
+        "Pickup details stay private until confirmation"
+      ],
+      "nodeIds": [
+        "api",
+        "member-service",
+        "item-service",
+        "loan-service",
+        "availability-policy",
+        "postgres",
+        "pickup-service",
+        "notification-service"
+      ]
+    },
+    {
+      "id": "return",
+      "name": "Return an item",
+      "description": "Owner confirmation makes the item ready for its next loan.",
+      "purpose": "Records the end of a loan and checks what should happen to the returned item.",
+      "entryPoint": "The owner selects \u201cConfirm return\u201d \u00b7 POST /loans/:id/return",
+      "output": "A completed loan and updated item availability",
+      "guarantees": [
+        "Only the owner can confirm the return",
+        "An item stays unavailable until its return is confirmed",
+        "The same availability rules apply to returns and new requests"
+      ],
+      "nodeIds": [
+        "api",
+        "member-service",
+        "return-service",
+        "loan-service",
+        "availability-policy",
+        "history-service",
+        "postgres"
+      ]
+    },
+    {
+      "id": "waitlist",
+      "name": "Join a waitlist",
+      "description": "Get in line for an item that is already borrowed.",
+      "purpose": "Gives neighbors a fair queue for popular items, with automatic offers planned for the next update.",
+      "entryPoint": "A neighbor selects \u201cJoin waitlist\u201d \u00b7 POST /items/:id/waitlist",
+      "output": "A saved queue position",
+      "guarantees": [
+        "A member can join an item waitlist only once",
+        "Positions follow the order members joined",
+        "Automatic offers are planned work, not a shipped feature"
+      ],
+      "nodeIds": [
+        "api",
+        "member-service",
+        "waitlist-service",
+        "postgres"
+      ]
+    },
+    {
+      "id": "reminders",
+      "name": "Pickup reminders",
+      "description": "A useful nudge before the owner and borrower meet.",
+      "purpose": "Reduces missed pickups by reminding both neighbors before their agreed time.",
+      "entryPoint": "An agreed pickup time",
+      "output": "One reminder per member and pickup",
+      "guarantees": [
+        "Cancelled pickups do not send reminders",
+        "Retried jobs do not send duplicate emails"
+      ],
+      "nodeIds": [
+        "pickup-service",
+        "notification-service",
+        "message-queue",
+        "email"
+      ]
+    },
+    {
+      "id": "photos",
+      "name": "List an item with photos",
+      "description": "Help neighbors recognize what they are borrowing.",
+      "purpose": "Creates a listing with a clear title, category, and photo preview.",
+      "entryPoint": "The owner selects \u201cList an item\u201d \u00b7 POST /items",
+      "output": "A searchable item listing with photos",
+      "guarantees": [
+        "Only the owner can edit a listing",
+        "Original photos are preserved",
+        "Large photos use small previews in search"
+      ],
+      "nodeIds": [
+        "api",
+        "member-service",
+        "photo-service",
+        "object-storage",
+        "item-service",
+        "postgres",
+        "search-service"
+      ]
+    },
+    {
+      "id": "history",
+      "name": "Download lending history",
+      "description": "A private record of things you have borrowed and lent.",
+      "purpose": "Planned export lets a member keep a copy of their own lending history.",
+      "entryPoint": "The member selects \u201cDownload my history\u201d \u00b7 GET /history/export",
+      "output": "CSV containing the member\u2019s own loans",
+      "guarantees": [
+        "Only your own loans are included",
+        "Private pickup details are excluded",
+        "Export does not change the original records"
+      ],
+      "nodeIds": [
+        "api",
+        "member-service",
+        "history-service",
+        "postgres"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "items",
+      "target": "borrowing",
+      "type": "calls",
+      "description": "An item listing can receive a borrowing request"
+    },
+    {
+      "id": "edge-1",
+      "source": "borrowing",
+      "target": "returns",
+      "type": "calls",
+      "description": "A loan ends when its owner confirms the return"
+    },
+    {
+      "id": "edge-2",
+      "source": "returns",
+      "target": "waitlists",
+      "type": "calls",
+      "description": "Returned items can become available to waiting neighbors"
+    },
+    {
+      "id": "edge-3",
+      "source": "waitlists",
+      "target": "messages",
+      "type": "calls",
+      "description": "Offers notify the next person waiting"
+    },
+    {
+      "id": "edge-4",
+      "source": "members",
+      "target": "borrowing",
+      "type": "calls",
+      "description": "A signed-in member requests an item"
+    },
+    {
+      "id": "edge-5",
+      "source": "photos",
+      "target": "items",
+      "type": "calls",
+      "description": "Photos help neighbors recognize listed items"
+    },
+    {
+      "id": "edge-6",
+      "source": "borrowing",
+      "target": "history",
+      "type": "calls",
+      "description": "Loan state changes appear in the item history"
+    },
+    {
+      "id": "edge-7",
+      "source": "api",
+      "target": "member-service",
+      "type": "calls",
+      "description": "Checks the identity and permissions of the requesting member"
+    },
+    {
+      "id": "edge-8",
+      "source": "api",
+      "target": "loan-service",
+      "type": "calls",
+      "description": "Receives a request to borrow an item"
+    },
+    {
+      "id": "edge-9",
+      "source": "loan-service",
+      "target": "item-service",
+      "type": "depends-on",
+      "description": "Checks the listing and its owner"
+    },
+    {
+      "id": "edge-10",
+      "source": "loan-service",
+      "target": "availability-policy",
+      "type": "depends-on",
+      "description": "Applies the shared rules before reserving an item"
+    },
+    {
+      "id": "edge-11",
+      "source": "loan-service",
+      "target": "postgres",
+      "type": "writes-to",
+      "description": "Saves one reservation atomically"
+    },
+    {
+      "id": "edge-12",
+      "source": "loan-service",
+      "target": "pickup-service",
+      "type": "calls",
+      "description": "Arranges a handoff for the reserved item"
+    },
+    {
+      "id": "edge-13",
+      "source": "pickup-service",
+      "target": "notification-service",
+      "type": "calls",
+      "description": "Schedules reminders for the agreed pickup"
+    },
+    {
+      "id": "edge-14",
+      "source": "notification-service",
+      "target": "message-queue",
+      "type": "publishes-to",
+      "description": "Queues reminder messages for delivery"
+    },
+    {
+      "id": "edge-15",
+      "source": "notification-service",
+      "target": "email",
+      "type": "calls",
+      "description": "Sends reminders to the relevant neighbors"
+    },
+    {
+      "id": "edge-16",
+      "source": "return-service",
+      "target": "loan-service",
+      "type": "calls",
+      "description": "Completes the loan after owner confirmation"
+    },
+    {
+      "id": "edge-17",
+      "source": "return-service",
+      "target": "waitlist-service",
+      "type": "calls",
+      "description": "Checks whether anyone is waiting for this item; automatic offers are planned"
+    },
+    {
+      "id": "edge-18",
+      "source": "waitlist-service",
+      "target": "loan-service",
+      "type": "depends-on",
+      "description": "Shares the availability contract used by borrowing and returns"
+    },
+    {
+      "id": "edge-19",
+      "source": "waitlist-service",
+      "target": "postgres",
+      "type": "writes-to",
+      "description": "Records waitlist order without duplicate entries"
+    },
+    {
+      "id": "edge-20",
+      "source": "loan-service",
+      "target": "history-service",
+      "type": "calls",
+      "description": "Adds loan state changes to the history"
+    },
+    {
+      "id": "edge-21",
+      "source": "history-service",
+      "target": "postgres",
+      "type": "writes-to",
+      "description": "Stores private lending records"
+    },
+    {
+      "id": "edge-22",
+      "source": "member-service",
+      "target": "postgres",
+      "type": "reads-from",
+      "description": "Checks membership and loan participants"
+    },
+    {
+      "id": "edge-23",
+      "source": "photo-service",
+      "target": "object-storage",
+      "type": "writes-to",
+      "description": "Stores originals and resized previews"
+    },
+    {
+      "id": "edge-24",
+      "source": "item-service",
+      "target": "photo-service",
+      "type": "calls",
+      "description": "Attaches uploaded photos to the listing"
+    },
+    {
+      "id": "edge-25",
+      "source": "item-service",
+      "target": "postgres",
+      "type": "writes-to",
+      "description": "Saves item ownership and listing details"
+    },
+    {
+      "id": "edge-26",
+      "source": "search-service",
+      "target": "postgres",
+      "type": "reads-from",
+      "description": "Finds matching items in the neighborhood"
+    }
+  ]
+}

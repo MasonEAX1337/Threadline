@@ -1,0 +1,12 @@
+{
+  "id": "api",
+  "name": "Borrow API",
+  "type": "api",
+  "description": "Receives requests from the neighborhood lending app.",
+  "responsibilities": [
+    "Route item, loan, and member requests"
+  ],
+  "parentId": "loan-lifecycle",
+  "systemId": "borrowing",
+  "path": "src/api/routes.ts"
+}

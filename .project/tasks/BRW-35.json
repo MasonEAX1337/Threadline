@@ -1,0 +1,28 @@
+{
+  "id": "BRW-35",
+  "title": "Create item listings",
+  "description": "Let owners list a drill, ladder, book, or camping tent to lend.",
+  "status": "done",
+  "assigneeId": "mason",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "item-service",
+    "photo-service"
+  ],
+  "relatedChangeIds": [],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Save title, category, and description",
+    "Attach listing photos",
+    "Allow only the owner to edit"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/items/item.service.ts",
+    "src/photos/photo.service.ts"
+  ],
+  "agentCreated": true
+}

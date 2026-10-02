@@ -1,0 +1,13 @@
+{
+  "id": "search-service",
+  "name": "ItemSearchService",
+  "type": "service",
+  "description": "Finds nearby items such as a drill, tent, or ladder.",
+  "responsibilities": [
+    "Search by name and category",
+    "Filter items by neighborhood"
+  ],
+  "parentId": "item-discovery",
+  "systemId": "items",
+  "path": "src/items/search.service.ts"
+}

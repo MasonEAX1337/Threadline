@@ -1,0 +1,11 @@
+{
+  "id": "return-checks",
+  "name": "Return confirmation",
+  "type": "module",
+  "description": "Confirm returns before another loan starts.",
+  "responsibilities": [
+    "Confirm returns before another loan starts."
+  ],
+  "parentId": "returns",
+  "systemId": "returns"
+}

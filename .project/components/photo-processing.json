@@ -1,0 +1,11 @@
+{
+  "id": "photo-processing",
+  "name": "Photo uploads",
+  "type": "module",
+  "description": "Store and resize listing photos.",
+  "responsibilities": [
+    "Store and resize listing photos."
+  ],
+  "parentId": "photos",
+  "systemId": "photos"
+}

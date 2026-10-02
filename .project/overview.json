@@ -1,0 +1,84 @@
+{
+  "pipeline": [
+    {
+      "id": "items",
+      "name": "Find",
+      "icon": "items",
+      "line1": "Nearby items",
+      "line2": "Drill, tent, book"
+    },
+    {
+      "id": "borrowing",
+      "name": "Request",
+      "icon": "borrowing",
+      "line1": "Choose dates",
+      "line2": "One borrower"
+    },
+    {
+      "id": "borrowing",
+      "name": "Pick up",
+      "icon": "pickup",
+      "line1": "Meet the owner",
+      "line2": "Agreed time"
+    },
+    {
+      "id": "returns",
+      "name": "Return",
+      "icon": "returns",
+      "line1": "Confirm return",
+      "line2": "Ready to share"
+    },
+    {
+      "id": "waitlists",
+      "name": "Share again",
+      "icon": "waitlists",
+      "line1": "Next neighbor",
+      "line2": "Fair queue"
+    }
+  ],
+  "pipelineDescription": "From a neighbor\u2019s shelf to your next project.",
+  "currentTaskIds": [
+    "BRW-43",
+    "BRW-42",
+    "BRW-44"
+  ],
+  "suggestedComponentIds": [
+    "loan-service",
+    "waitlist-service",
+    "return-service"
+  ],
+  "workSuggestions": [
+    {
+      "label": "Waitlist offers",
+      "request": "When an item is returned, offer it to the next person on the waitlist for 24 hours."
+    },
+    {
+      "label": "Pickup reminders",
+      "request": "Let members choose when they receive pickup reminders."
+    },
+    {
+      "label": "Lending history",
+      "request": "Let members download their own lending history."
+    }
+  ],
+  "teamActivity": [
+    {
+      "changeId": "availability-check",
+      "action": "prevented double bookings",
+      "detail": "One availability check for every request",
+      "time": "18m"
+    },
+    {
+      "changeId": "waitlists-added",
+      "action": "added item waitlists",
+      "detail": "A fair queue for popular items",
+      "time": "1h"
+    },
+    {
+      "changeId": "pickup-reminders",
+      "action": "added pickup reminders",
+      "detail": "Less waiting, fewer missed handoffs",
+      "time": "3h"
+    }
+  ]
+}

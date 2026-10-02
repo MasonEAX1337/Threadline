@@ -1,0 +1,36 @@
+{
+  "id": "BRW-43",
+  "title": "Offer returned items to the waitlist",
+  "description": "When a drill or tent comes back, give the next neighbor waiting 24 hours to accept before anyone else can borrow it.",
+  "status": "in-progress",
+  "assigneeId": "alex",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "loan-service",
+    "waitlist-service",
+    "return-service",
+    "notification-service"
+  ],
+  "relatedChangeIds": [
+    "waitlists-added"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Choose the first eligible person waiting",
+    "Hold the item for 24 hours while they decide",
+    "Offer it to the next person if they decline or the offer expires"
+  ],
+  "assumptions": [
+    "Returned items are held for the next person waiting for 24 hours"
+  ],
+  "resources": [
+    "src/loans/loan.service.ts",
+    "src/waitlists/waitlist.service.ts",
+    "src/returns/return.service.ts",
+    "src/messages/notification.service.ts"
+  ],
+  "agentCreated": true
+}

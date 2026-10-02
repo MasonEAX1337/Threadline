@@ -1,0 +1,32 @@
+{
+  "id": "member-privacy",
+  "title": "Pickup details kept private",
+  "summary": "Contact and pickup details are visible only to the owner and their confirmed borrower.",
+  "reason": "A public listing should help people find an item without exposing a neighbor\u2019s address or phone number.",
+  "implementation": "MemberService verifies the people involved in the loan before returning pickup details. Public listings show the neighborhood only.",
+  "type": "refactor",
+  "significance": "important",
+  "authorId": "priya",
+  "timestamp": "2026-10-01T15:22:00Z",
+  "relativeTime": "Yesterday",
+  "commitSha": "b13a8cf",
+  "pullRequestNumber": 139,
+  "branch": "main",
+  "componentIds": [
+    "member-service",
+    "api"
+  ],
+  "files": [
+    "src/members/member.service.ts",
+    "src/api/routes.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-38"
+  ],
+  "evidence": {
+    "source": "PR #139 \u00b7 ADR-018",
+    "revision": "b13a8cf",
+    "status": "recorded"
+  },
+  "decisionId": "adr-018"
+}

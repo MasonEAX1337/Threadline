@@ -1,0 +1,30 @@
+{
+  "id": "BRW-36",
+  "title": "Reserve an item safely",
+  "description": "Prevent two borrowing requests from reserving the same item.",
+  "status": "done",
+  "assigneeId": "mason",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "loan-service",
+    "availability-policy",
+    "postgres"
+  ],
+  "relatedChangeIds": [
+    "availability-check"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Allow one reservation per item",
+    "Explain when an item is unavailable"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/loans/loan.service.ts",
+    "src/loans/availability-policy.ts"
+  ],
+  "agentCreated": true
+}

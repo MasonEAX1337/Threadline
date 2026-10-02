@@ -1,0 +1,10 @@
+{
+  "id": "borrow",
+  "name": "Borrow",
+  "description": "Share more. Buy less. Borrow from your neighbors.",
+  "repositoryUrl": "https://github.com/example/borrow",
+  "defaultBranch": "main",
+  "updatedAt": "2026-10-01T18:22:00Z",
+  "componentCount": 38,
+  "taskPrefix": "BRW"
+}

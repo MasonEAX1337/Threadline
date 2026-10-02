@@ -1,0 +1,9 @@
+{
+  "id": "items",
+  "name": "Items",
+  "type": "system",
+  "description": "Tools, books, and camping gear neighbors can share.",
+  "responsibilities": [
+    "Tools, books, and camping gear neighbors can share."
+  ]
+}

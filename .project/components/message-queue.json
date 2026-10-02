@@ -1,0 +1,11 @@
+{
+  "id": "message-queue",
+  "name": "Reminder queue",
+  "type": "queue",
+  "description": "Schedules messages without making the borrower wait.",
+  "responsibilities": [
+    "Deliver reminder jobs reliably"
+  ],
+  "parentId": "message-delivery",
+  "systemId": "messages"
+}

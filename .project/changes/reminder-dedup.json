@@ -1,0 +1,31 @@
+{
+  "id": "reminder-dedup",
+  "title": "Duplicate reminders fixed",
+  "summary": "A retried message job no longer sends the same pickup reminder twice.",
+  "reason": "A temporary email delivery error could cause a reminder job to retry after the email had already been sent.",
+  "implementation": "Each reminder uses a stable loan-and-event key. NotificationService checks the delivery record before sending again.",
+  "type": "fix",
+  "significance": "normal",
+  "authorId": "eli",
+  "timestamp": "2026-10-01T14:22:00Z",
+  "relativeTime": "2 days ago",
+  "commitSha": "9ed31b4",
+  "pullRequestNumber": 138,
+  "branch": "main",
+  "componentIds": [
+    "notification-service",
+    "message-queue",
+    "email"
+  ],
+  "files": [
+    "src/messages/notification.service.ts"
+  ],
+  "relatedTaskIds": [
+    "BRW-37"
+  ],
+  "evidence": {
+    "source": "PR #138",
+    "revision": "9ed31b4",
+    "status": "recorded"
+  }
+}

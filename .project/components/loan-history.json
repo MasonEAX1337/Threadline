@@ -1,0 +1,11 @@
+{
+  "id": "loan-history",
+  "name": "Loan records",
+  "type": "module",
+  "description": "Preserve the timeline of item handoffs.",
+  "responsibilities": [
+    "Preserve the timeline of item handoffs."
+  ],
+  "parentId": "history",
+  "systemId": "history"
+}

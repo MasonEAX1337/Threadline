@@ -1,0 +1,12 @@
+{
+  "id": "send-reminder",
+  "name": "sendReminder()",
+  "type": "function",
+  "description": "Send one reminder for an upcoming pickup.",
+  "responsibilities": [
+    "Send one reminder for an upcoming pickup."
+  ],
+  "parentId": "notification-service",
+  "systemId": "messages",
+  "path": "src/messages/notification.service.ts"
+}

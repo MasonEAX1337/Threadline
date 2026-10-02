@@ -1,0 +1,11 @@
+{
+  "id": "message-delivery",
+  "name": "Reminder delivery",
+  "type": "module",
+  "description": "Schedule and deliver useful reminders.",
+  "responsibilities": [
+    "Schedule and deliver useful reminders."
+  ],
+  "parentId": "messages",
+  "systemId": "messages"
+}

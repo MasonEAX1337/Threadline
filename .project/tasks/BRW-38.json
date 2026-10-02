@@ -1,0 +1,29 @@
+{
+  "id": "BRW-38",
+  "title": "Add member sign-in",
+  "description": "Let neighbors sign in before requesting an item.",
+  "status": "done",
+  "assigneeId": "priya",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "member-service",
+    "api"
+  ],
+  "relatedChangeIds": [
+    "member-privacy"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Protect member-only requests",
+    "Keep contact details private"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/members/member.service.ts",
+    "src/api/routes.ts"
+  ],
+  "agentCreated": true
+}

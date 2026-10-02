@@ -1,0 +1,9 @@
+{
+  "id": "members",
+  "name": "Members",
+  "type": "system",
+  "description": "Neighborhood profiles, sign-in, and trust.",
+  "responsibilities": [
+    "Neighborhood profiles, sign-in, and trust."
+  ]
+}

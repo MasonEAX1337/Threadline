@@ -1,0 +1,30 @@
+{
+  "id": "BRW-45",
+  "title": "Pickup reminder preferences",
+  "description": "Let borrowers choose whether to receive an email the day before pickup.",
+  "status": "in-progress",
+  "assigneeId": "eli",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "notification-service",
+    "member-service"
+  ],
+  "relatedChangeIds": [
+    "pickup-reminders"
+  ],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Save each member\u2019s preference",
+    "Skip reminders when a member opts out",
+    "Keep essential handoff messages enabled"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/messages/notification.service.ts",
+    "src/members/member.service.ts"
+  ],
+  "agentCreated": true
+}

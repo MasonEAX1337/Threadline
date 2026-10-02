@@ -1,0 +1,28 @@
+{
+  "id": "BRW-46",
+  "title": "Search by item category",
+  "description": "Help neighbors find tools, books, and camping equipment without browsing every listing.",
+  "status": "backlog",
+  "assigneeId": "sarah",
+  "labels": [
+    "Feature"
+  ],
+  "componentIds": [
+    "search-service",
+    "item-service"
+  ],
+  "relatedChangeIds": [],
+  "milestoneId": "beta",
+  "dueDate": "2026-10-06",
+  "acceptanceCriteria": [
+    "Filter by category",
+    "Keep keyword search active",
+    "Show a helpful state when no nearby items match"
+  ],
+  "assumptions": [],
+  "resources": [
+    "src/items/search.service.ts",
+    "src/items/item.service.ts"
+  ],
+  "agentCreated": true
+}
