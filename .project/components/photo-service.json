@@ -1,0 +1,14 @@
+{
+  "id": "photo-service",
+  "name": "PhotoService",
+  "type": "service",
+  "description": "Uploads clear item photos and creates small previews.",
+  "responsibilities": [
+    "Validate photo size and format",
+    "Create thumbnails",
+    "Remove photos when their owner deletes them"
+  ],
+  "parentId": "photo-processing",
+  "systemId": "photos",
+  "path": "src/photos/photo.service.ts"
+}

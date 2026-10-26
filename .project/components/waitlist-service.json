@@ -1,0 +1,14 @@
+{
+  "id": "waitlist-service",
+  "name": "WaitlistService",
+  "type": "service",
+  "description": "Keeps interested neighbors in order and manages offers when an item returns.",
+  "responsibilities": [
+    "Join or leave an item waitlist",
+    "Choose the next eligible neighbor",
+    "Track and expire an offer"
+  ],
+  "parentId": "waitlist-order",
+  "systemId": "waitlists",
+  "path": "src/waitlists/waitlist.service.ts"
+}

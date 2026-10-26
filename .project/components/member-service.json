@@ -1,0 +1,15 @@
+{
+  "id": "member-service",
+  "name": "MemberService",
+  "type": "service",
+  "description": "Checks who is borrowing and keeps private contact details protected.",
+  "responsibilities": [
+    "Sign members in",
+    "Check item ownership",
+    "Share contact details only for agreed pickups"
+  ],
+  "parentId": "member-profiles",
+  "systemId": "members",
+  "path": "src/members/member.service.ts",
+  "decisionId": "adr-018"
+}

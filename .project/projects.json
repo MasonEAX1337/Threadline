@@ -1,0 +1,17 @@
+[
+  {
+    "id": "borrow",
+    "name": "Borrow",
+    "description": "Neighborhood lending"
+  },
+  {
+    "id": "gather",
+    "name": "Gather",
+    "description": "Community event planning"
+  },
+  {
+    "id": "trail",
+    "name": "Trail",
+    "description": "Group trip planning"
+  }
+]

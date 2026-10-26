@@ -1,0 +1,11 @@
+{
+  "id": "member-profiles",
+  "name": "Member profiles",
+  "type": "module",
+  "description": "Keep neighborhood identity and private contact details.",
+  "responsibilities": [
+    "Keep neighborhood identity and private contact details."
+  ],
+  "parentId": "members",
+  "systemId": "members"
+}

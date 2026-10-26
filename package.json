@@ -10,10 +10,15 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run lint && npm run typecheck && npm run format:check",
+    "check": "npm run knowledge:validate && npm run lint && npm run typecheck && npm run test:unit && npm run format:check",
     "test:install": "playwright install chromium webkit",
     "test:e2e": "npm run build && playwright test",
-    "test:e2e:ui": "npm run build && playwright test --ui"
+    "test:e2e:ui": "npm run build && playwright test --ui",
+    "knowledge:validate": "node scripts/validate-knowledge.mjs",
+    "knowledge:sync": "node scripts/sync-knowledge.mjs",
+    "prebuild": "npm run knowledge:validate && npm run knowledge:sync",
+    "predev": "npm run knowledge:validate && npm run knowledge:sync",
+    "test:unit": "node --import tsx --test tests/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -49,6 +54,7 @@
     "prettier-plugin-tailwindcss": "0.8.1",
     "shadcn": "4.22.1",
     "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
     "typescript": "6.0.3"
   },
   "private": true,

@@ -26,8 +26,8 @@ The planned schema and complete fictional Borrow records are in `docs/product-sp
 
 Borrow's fixture records describe a fictional lending application, not Threadline's implementation. Do not attribute Threadline development changes to Borrow or manufacture Borrow revisions. Real Threadline implementation decisions belong in `docs/` until its own project knowledge is configured.
 
-## Bootstrap state
+## Working with this repository
 
-Only the foundation is implemented so far. `.project/`, the domain types, knowledge services, `knowledge:validate`, and `knowledge:sync` are the next build stage. Until they exist, record actual implementation context in documentation and commit history, run the available checks, and report knowledge commands as unavailable rather than inventing passing results.
+The exact Borrow records now live in `.project/`. Domain types are in `src/types/index.ts`; generated adapters are in `src/mock/`; async services are in `src/lib/services.ts`. Run `npm run knowledge:validate`, `npm run knowledge:sync`, and `npm run typecheck` after record changes. Validation and synchronization also run before development and production builds.
 
-Once introduced, run `npm run knowledge:validate`, `npm run knowledge:sync`, and `npm run typecheck` after record changes. Browser-created tasks remain local storage overlays; Git publication is a future explicit adapter. See `docs/knowledge-branch.md` for the proposed branch publication model.
+Browser-created tasks remain local storage overlays; Git publication is a future explicit adapter. See `docs/knowledge-branch.md` for the proposed branch publication model.

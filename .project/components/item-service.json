@@ -1,0 +1,13 @@
+{
+  "id": "item-service",
+  "name": "ItemService",
+  "type": "service",
+  "description": "Manages listings for things neighbors want to lend.",
+  "responsibilities": [
+    "Save item descriptions and categories",
+    "Keep ownership and listing visibility current"
+  ],
+  "parentId": "item-listings",
+  "systemId": "items",
+  "path": "src/items/item.service.ts"
+}
