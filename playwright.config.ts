@@ -9,6 +9,7 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 
 export default defineConfig({
   testDir: "./tests",
+  testMatch: "**/*.spec.ts",
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,

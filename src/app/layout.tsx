@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Application } from "@/components/application";
+import { projectService } from "@/lib/services";
 import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,9 +31,24 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <TooltipProvider>{children}</TooltipProvider>
+        <TooltipProvider>
+          <Suspense
+            fallback={
+              <p role="status" className="p-7 text-muted-foreground">
+                Loading project knowledge…
+              </p>
+            }
+          >
+            <ProjectWorkspace>{children}</ProjectWorkspace>
+          </Suspense>
+        </TooltipProvider>
         <Toaster />
       </body>
     </html>
   );
+}
+
+async function ProjectWorkspace({ children }: { children: React.ReactNode }) {
+  const seed = await projectService.getSnapshot();
+  return <Application seed={seed}>{children}</Application>;
 }

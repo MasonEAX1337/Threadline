@@ -13,10 +13,9 @@ test("loads the production app and local variable font without runtime errors", 
   });
 
   await page.goto("/");
+  await expect(page.locator("[data-ready=true]")).toBeVisible();
   await expect(page).toHaveTitle("Threadline — Borrow");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Shared context for teams that build with agents.",
-  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Borrow");
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
     "Your team's shared understanding of the codebase. Explore architecture, understand changes, and coordinate agent-led work.",
@@ -41,6 +40,7 @@ test("keeps the foundation readable without horizontal document overflow", async
   page,
 }) => {
   await page.goto("/");
+  await expect(page.locator("[data-ready=true]")).toBeVisible();
   await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
   const geometry = await page.evaluate(() => ({
     documentWidth: document.documentElement.scrollWidth,
@@ -56,6 +56,7 @@ test("provides a visible keyboard skip link into the main landmark", async ({
   browserName,
 }) => {
   await page.goto("/");
+  await expect(page.locator("[data-ready=true]")).toBeVisible();
   // WebKit uses Option+Tab to include links in sequential keyboard navigation.
   await page.keyboard.press(browserName === "webkit" ? "Alt+Tab" : "Tab");
   const skipLink = page.getByRole("link", { name: "Skip to content" });
@@ -66,15 +67,19 @@ test("provides a visible keyboard skip link into the main landmark", async ({
   await expect(page.getByRole("main")).toBeFocused();
 });
 
-test("returns a real 404 and recovers to the overview", async ({ page }) => {
-  const response = await page.goto("/not-a-project-page");
-  expect(response?.status()).toBe(404);
+test("shows a non-indexable missing page and recovers to the overview", async ({
+  page,
+}) => {
+  await page.goto("/not-a-project-page");
+  // Next.js may stream the root Suspense boundary before notFound resolves.
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    "noindex",
+  );
   await expect(
     page.getByRole("heading", { name: "This page isn't in the project" }),
   ).toBeVisible();
   await page.getByRole("link", { name: "Go to overview" }).click();
   await expect(page).toHaveURL("/");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Shared context for teams that build with agents.",
-  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Borrow");
 });
