@@ -1,12 +1,12 @@
 # Implementation stages
 
-Each stage should contain focused, reviewable commits and be verified before pushing. The user requested frequent pushes of coherent changes. Stages 1–2 are implemented; stages 3–6 are now authorized and in progress.
+The six requested stages are implemented in focused commits, with checks and regular pushes. Final verification is recorded in `verification.md`.
 
-1. **Foundation — implemented.** Next.js App Router, pinned stack and lockfile, TypeScript, lint/format/build scripts, local Inter with its license, visual tokens, initial Radix UI primitives, repository guidance, CI, and browser smoke tests. The current `/` is a temporary foundation screen, not the Borrow overview.
-2. **Knowledge — implemented.** Materialize Appendix B exactly, define Appendix A types, discover files in manifest order, implement validation and generated adapters, and expose isolated async service snapshots. Add validation/synchronization to the build lifecycle.
-3. **Workspace.** Persistent shell/provider, responsive navigation, Borrow overview, browser persistence, project previews, and mock session.
-4. **Planning.** Live board/milestones, deterministic planner, overlap detection, task editing, coordination notes, and drag/drop with keyboard alternatives.
-5. **Exploration.** Hierarchical codebase graph, behavioral architecture flows, narrative activity/change detail, and decision memory.
-6. **Completion.** Team/expertise, global search, notifications, settings/reset, full stateful browser tests, responsive review, and documentation update.
+1. **Foundation — implemented.** Next.js App Router, pinned stack/lockfile, TypeScript, lint/format/build scripts, local licensed Inter, visual tokens, Radix UI primitives, repository guidance, CI, and browser foundation tests.
+2. **Knowledge — implemented.** All 67 Appendix B records preserved exactly, Appendix A types, manifest-ordered discovery, validation, generated adapters, isolated async services, and build-time validation/synchronization.
+3. **Workspace — implemented.** Persistent shell/provider, responsive navigation, Borrow overview, browser overlays, project previews, and mock session.
+4. **Planning — implemented.** Live board/milestones, deterministic drafting, evidence-based overlap detection, task properties, coordination notes, and desktop drag/drop with accessible status editing.
+5. **Exploration — implemented.** Lazy-loaded hierarchical codebase graph, six behavioral architecture flows, narrative activity/change detail, source links, dependency inspection, and decision memory.
+6. **Completion — implemented.** Team/expertise, global/full-page search, notifications, settings/reset, stateful desktop/mobile browser verification, responsive review, and documentation.
 
-The original detailed specification and fictional data are preserved in `product-spec.md`. Later conversation added the future knowledge-branch design in `knowledge-branch.md`; actual multi-developer publication is outside the frontend prototype.
+The original specification and fictional data remain in `product-spec.md`. The later shared knowledge-branch direction is in `knowledge-branch.md`; actual multi-developer publication remains outside this frontend prototype. Borrow fixture records are not used to fabricate a development history for Threadline itself.

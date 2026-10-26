@@ -22,7 +22,7 @@ Threadline connects intent, tasks, components, architectural flows, changes, and
 
 ## Record locations and ordering
 
-The planned schema and complete fictional Borrow records are in `docs/product-spec.md`, Appendices A and B. In the knowledge stage, materialize individual component/task/change/decision files under `.project/`, with the shared project records and manifest at its root. Respect manifest order; discover additional files deterministically after listed records. Generate typed `src/mock/` adapters and read them through async services.
+The schema and complete fictional Borrow records are preserved in `docs/product-spec.md`, Appendices A and B, and materialized under `.project/`. Individual component/task/change/decision files live in their respective subdirectories; shared records and the manifest are at the root. Respect manifest order; discover additional files deterministically after listed records. Generate typed `src/mock/` adapters and read them through async services.
 
 Borrow's fixture records describe a fictional lending application, not Threadline's implementation. Do not attribute Threadline development changes to Borrow or manufacture Borrow revisions. Real Threadline implementation decisions belong in `docs/` until its own project knowledge is configured.
 
