@@ -2,6 +2,7 @@
 import { Github } from "@/components/github-icon";
 import { useEffect, useState, startTransition } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   House,
@@ -27,6 +28,7 @@ import {
 import { useProject, ProjectProvider } from "@/components/project-context";
 import { Brand } from "@/components/brand";
 import { Activity, ChangeDetail } from "@/components/activity";
+import { Team, ProjectSettings } from "@/components/people-settings";
 import { Overview } from "@/components/overview";
 import { Board } from "@/components/board";
 import { Login } from "@/components/login";
@@ -50,6 +52,17 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import type { Snapshot } from "@/types";
+const Codebase = dynamic(
+  () => import("@/components/graph").then((m) => m.Codebase),
+  { ssr: false, loading: () => <p role="status">Loading codebase map…</p> },
+);
+const Architecture = dynamic(
+  () => import("@/components/graph").then((m) => m.Architecture),
+  {
+    ssr: false,
+    loading: () => <p role="status">Loading architecture flows…</p>,
+  },
+);
 const navigation = [
   { href: "/", name: "Overview", icon: House },
   { href: "/activity", name: "Activity", icon: ActivityIcon },
@@ -322,8 +335,16 @@ function Workspace({ children }: { children: React.ReactNode }) {
             <Activity key={params.get("component") ?? "all"} />
           ) : path.startsWith("/activity/") ? (
             <ChangeDetail key={path} id={path.split("/")[2]} />
+          ) : path === "/codebase" ? (
+            <Codebase key={params.get("node") ?? "all"} />
+          ) : path === "/architecture" ? (
+            <Architecture key={params.get("flow") ?? "borrow"} />
           ) : path === "/board" ? (
             <Board />
+          ) : path === "/team" ? (
+            <Team />
+          ) : path === "/settings" ? (
+            <ProjectSettings />
           ) : path === "/search" ? (
             <SearchPage />
           ) : (
