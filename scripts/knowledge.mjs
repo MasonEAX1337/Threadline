@@ -43,10 +43,10 @@ export async function readKnowledge(root = path.resolve(".project")) {
         }
       }),
     );
-    const order = data.manifest.order?.[group] ?? [];
+    const order = data.manifest?.order?.[group] ?? [];
     records.sort((a, b) => {
-      const ai = order.indexOf(a.value.id),
-        bi = order.indexOf(b.value.id);
+      const ai = Array.isArray(order) ? order.indexOf(a.value?.id) : -1,
+        bi = Array.isArray(order) ? order.indexOf(b.value?.id) : -1;
       return (
         (ai < 0 ? Infinity : ai) - (bi < 0 ? Infinity : bi) ||
         a.file.localeCompare(b.file, "en")
@@ -66,9 +66,9 @@ export function validateKnowledge(data) {
   const text = (value) => typeof value === "string" && value.trim().length > 0;
   function shape(record, fields, id) {
     if (!record || typeof record !== "object" || Array.isArray(record)) {
-      errors.push(`${id}: expected an object`);
-      return;
+      throw new Error(`${id}: expected an object`);
     }
+    const before = errors.length;
     for (const [field, type] of Object.entries(fields)) {
       const value = record[field];
       const valid =
@@ -78,9 +78,14 @@ export function validateKnowledge(data) {
             ? Array.isArray(value) && value.every(text)
             : type === "array"
               ? Array.isArray(value)
-              : typeof value === type;
+              : type === "object"
+                ? value !== null &&
+                  typeof value === "object" &&
+                  !Array.isArray(value)
+                : typeof value === type;
       require(valid, id, `${field} must be ${type}`);
     }
+    if (errors.length > before) throw new Error(errors.join("\n"));
   }
   const schemas = {
     components: {
@@ -202,7 +207,7 @@ export function validateKnowledge(data) {
   for (const [group, schema] of Object.entries(schemas)) {
     require(Array.isArray(data[group]), group, "expected an array of records");
     const ids = new Set();
-    for (const record of data[group] ?? []) {
+    for (const record of Array.isArray(data[group]) ? data[group] : []) {
       shape(record, schema, `${group}/${record?.id ?? "missing ID"}`);
       require(!ids.has(record?.id), group, `duplicate ID ${record?.id}`);
       ids.add(record?.id);
@@ -466,7 +471,7 @@ export function validateKnowledge(data) {
         criteria: "texts",
         assumptions: "texts",
       },
-      `planner ${rule.match}`,
+      `planner ${rule?.match ?? "missing rule"}`,
     );
     if (Array.isArray(rule.components))
       refs("components", rule.components, "planner");

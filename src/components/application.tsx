@@ -333,10 +333,12 @@ function Workspace({ children }: { children: React.ReactNode }) {
             <Overview openRepository={() => setRepository(true)} />
           ) : path === "/activity" ? (
             <Activity key={params.get("component") ?? "all"} />
-          ) : path.startsWith("/activity/") ? (
+          ) : /^\/activity\/[^/]+\/?$/.test(path) ? (
             <ChangeDetail key={path} id={path.split("/")[2]} />
           ) : path === "/codebase" ? (
-            <Codebase key={params.get("node") ?? "all"} />
+            <Codebase
+              key={`${params.get("node") ?? "all"}:${params.get("scope") ?? ""}`}
+            />
           ) : path === "/architecture" ? (
             <Architecture key={params.get("flow") ?? "borrow"} />
           ) : path === "/board" ? (

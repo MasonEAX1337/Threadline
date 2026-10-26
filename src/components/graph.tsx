@@ -52,6 +52,7 @@ import {
   nodeDepth,
   visibleNodes,
   nodePosition,
+  isDescendant,
   type Depth,
 } from "@/lib/graph";
 import type { ArchitectureNode, ArchitectureFlow, NodeType } from "@/types";
@@ -219,6 +220,8 @@ function Canvas({
           nodes={nodes}
           edges={rendered}
           nodeTypes={nodeTypes}
+          deleteKeyCode={null}
+          edgesReconnectable={false}
           nodesDraggable={false}
           nodesConnectable={false}
           nodesFocusable={false}
@@ -452,7 +455,13 @@ export function Codebase() {
   const [depth, setDepth] = useState<Depth>(
       initial ? nodeDepth(initial) : "architecture",
     ),
-    [scope, setScope] = useState<string | null>(null),
+    [scope, setScope] = useState<string | null>(
+      initial &&
+        params.get("scope") &&
+        isDescendant(initial, params.get("scope")!, seed.nodes)
+        ? params.get("scope")
+        : null,
+    ),
     [focus, setFocus] = useState<string | null>(initial?.id ?? null),
     [selected, setSelected] = useState<string | null>(initial?.id ?? null),
     [types, setTypes] = useState<NodeType[]>(
@@ -498,6 +507,8 @@ export function Codebase() {
   const graphNodes: ComponentNode[] = nodes.map((n, i) => ({
     id: n.id,
     type: "component",
+    // Explicit dimensions keep React Flow from hiding a node while remeasuring
+    // selection updates, which would swallow the second click of a double-click.
     width: 205,
     height: 116,
     position: nodePosition(n, i, depth),
@@ -587,6 +598,7 @@ export function Codebase() {
               aria-pressed={depth === d}
               onClick={() => {
                 setDepth(d);
+                setFocus(null);
                 setScope(null);
                 setSelected(null);
               }}
@@ -786,7 +798,10 @@ export function Architecture() {
           <ComponentInspector
             node={node}
             onSelect={select}
-            onExplore={(id) => go(`/codebase?node=${id}`)}
+            onExplore={(id) => {
+              const child = seed.nodes.find((n) => n.parentId === id);
+              if (child) go(`/codebase?node=${child.id}&scope=${id}`);
+            }}
             onClose={() => setSelected(null)}
           />
         ) : (

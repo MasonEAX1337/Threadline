@@ -180,3 +180,55 @@ test("overlap evidence is symmetric, prioritizes contracts, and excludes done wo
   assert.equal(pairs[0].overlap.level, "contract");
   assert.equal(nextTaskId(tasks), "BRW-50");
 });
+
+test("malformed structural knowledge fails with actionable record locations", async () => {
+  const valid = await readKnowledge();
+  for (const [mutate, expected] of [
+    [
+      (d: typeof valid) => {
+        d.architecture.flows[0] = null;
+      },
+      /flow.*expected an object/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.architecture.edges[0] = null;
+      },
+      /edge.*expected an object/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.planner.rules[0] = null;
+      },
+      /planner.*expected an object/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.manifest.order = null;
+      },
+      /manifest.*order must be object/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.tasks = {};
+      },
+      /tasks.*expected an array/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.changes[0].evidence = null;
+      },
+      /availability-check.*evidence must be object/,
+    ],
+    [
+      (d: typeof valid) => {
+        d.overview.pipeline[0] = null;
+      },
+      /overview pipeline.*expected an object/,
+    ],
+  ] as const) {
+    const data = structuredClone(valid);
+    mutate(data);
+    assert.throws(() => validateKnowledge(data), expected);
+  }
+});

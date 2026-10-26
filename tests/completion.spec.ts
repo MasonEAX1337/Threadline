@@ -146,6 +146,12 @@ test("search keyboard navigation wraps, Escape closes, and unmatched knowledge i
       .getByRole("dialog")
       .getByRole("heading", { name: "Download my lending history" }),
   ).toBeVisible();
+  await page.waitForURL("**/board?task=BRW-44");
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Close", exact: true })
+    .click();
+  await expect(page).not.toHaveURL(/task=/);
   await page.goto("/search");
   await page
     .getByRole("combobox", { name: "Search project" })

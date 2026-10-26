@@ -25,7 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { Field, FieldLabel, FieldDescription } from "@/components/ui/field";
 
 export function OverlapWarning({ overlap }: { overlap: Overlap }) {
-  const { seed, openTask, setOverlapOpen } = useProject();
+  const { seed, openTask, setOverlapOpen, setDescribeOpen } = useProject();
   const owner = seed.developers.find((d) => d.id === overlap.task.assigneeId)!;
   return (
     <div className="overlap-warning">
@@ -39,11 +39,15 @@ export function OverlapWarning({ overlap }: { overlap: Overlap }) {
         <StatusBadge status={overlap.task.status} />
       </div>
       <p>{overlap.explanation}</p>
-      <ComponentChips ids={overlap.componentIds} />
+      <ComponentChips
+        ids={overlap.componentIds}
+        onNavigate={() => setDescribeOpen(false)}
+      />
       <button
         className="text-link"
         onClick={() => {
           setOverlapOpen(false);
+          setDescribeOpen(false);
           openTask(overlap.task.id);
         }}
       >
@@ -174,7 +178,10 @@ export function DescribeWork() {
           <div className="dialog-section">
             <h3>Scope · affected components</h3>
             {draft.componentIds.length ? (
-              <ComponentChips ids={draft.componentIds} />
+              <ComponentChips
+                ids={draft.componentIds}
+                onNavigate={() => setDescribeOpen(false)}
+              />
             ) : (
               <p>
                 Scope needs discovery. The agent has not identified a component
